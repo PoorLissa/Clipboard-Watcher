@@ -41,6 +41,7 @@ namespace Clipboard_Watcher
             // 
             // richTextBox1
             // 
+            this.richTextBox1.BackColor = System.Drawing.SystemColors.Window;
             this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.richTextBox1.Font = new System.Drawing.Font("Consolas", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.richTextBox1.Location = new System.Drawing.Point(0, 0);
@@ -129,7 +130,7 @@ namespace Clipboard_Watcher
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.richTextBox1);
-            this.MinimumSize = new System.Drawing.Size(1200, 630);
+            this.MinimumSize = new System.Drawing.Size(1200, 700);
             this.Name = "Form1";
             this.Text = "-= Clipboard Watcher =-";
             this.panel1.ResumeLayout(false);
