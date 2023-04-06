@@ -94,7 +94,7 @@ namespace Clipboard_Watcher
             this.bClear.Name = "bClear";
             this.bClear.Size = new System.Drawing.Size(748, 200);
             this.bClear.TabIndex = 2;
-            this.bClear.Text = "Clear All";
+            this.bClear.Text = "Clear";
             this.bClear.UseVisualStyleBackColor = true;
             this.bClear.Click += new System.EventHandler(this.bClear_Click);
             // 
@@ -107,7 +107,7 @@ namespace Clipboard_Watcher
             this.bCopy.Name = "bCopy";
             this.bCopy.Size = new System.Drawing.Size(748, 200);
             this.bCopy.TabIndex = 1;
-            this.bCopy.Text = "Copy All";
+            this.bCopy.Text = "Copy";
             this.bCopy.UseVisualStyleBackColor = true;
             this.bCopy.Click += new System.EventHandler(this.bCopy_Click);
             // 
