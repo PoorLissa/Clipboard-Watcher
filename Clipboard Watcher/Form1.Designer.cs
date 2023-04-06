@@ -32,6 +32,7 @@ namespace Clipboard_Watcher
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.bClear = new System.Windows.Forms.Button();
             this.bCopy = new System.Windows.Forms.Button();
             this.tbFilter = new System.Windows.Forms.TextBox();
@@ -48,7 +49,7 @@ namespace Clipboard_Watcher
             this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.richTextBox1.Size = new System.Drawing.Size(879, 1114);
             this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "lalala putin is khuilo!";
+            this.richTextBox1.Text = "";
             this.richTextBox1.WordWrap = false;
             // 
             // splitter1
@@ -61,6 +62,7 @@ namespace Clipboard_Watcher
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Controls.Add(this.bClear);
             this.panel1.Controls.Add(this.bCopy);
             this.panel1.Controls.Add(this.tbFilter);
@@ -70,10 +72,23 @@ namespace Clipboard_Watcher
             this.panel1.Size = new System.Drawing.Size(797, 1114);
             this.panel1.TabIndex = 2;
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkBox1.Location = new System.Drawing.Point(22, 575);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(117, 40);
+            this.checkBox1.TabIndex = 3;
+            this.checkBox1.Text = "Enable";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // bClear
             // 
             this.bClear.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.bClear.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.bClear.Location = new System.Drawing.Point(22, 338);
             this.bClear.Name = "bClear";
             this.bClear.Size = new System.Drawing.Size(748, 200);
@@ -86,6 +101,7 @@ namespace Clipboard_Watcher
             // 
             this.bCopy.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.bCopy.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.bCopy.Location = new System.Drawing.Point(22, 101);
             this.bCopy.Name = "bCopy";
             this.bCopy.Size = new System.Drawing.Size(748, 200);
@@ -130,6 +146,7 @@ namespace Clipboard_Watcher
         private System.Windows.Forms.TextBox tbFilter;
         private System.Windows.Forms.Button bClear;
         private System.Windows.Forms.Button bCopy;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 

@@ -18,6 +18,7 @@ namespace Clipboard_Watcher
         private static string oldText = "";
         private static string newText = "";
         private static bool isRunning = false;
+        private static bool isEnabled = true;
 
         // ---------------------------------------------------------------------------------------------------------------
 
@@ -35,6 +36,8 @@ namespace Clipboard_Watcher
                     Priority = System.Threading.ThreadPriority.Normal,
                     Name = nameof(threadFunc)
                 };
+
+                checkBox1.Checked = true;
 
                 th.SetApartmentState(System.Threading.ApartmentState.STA);
                 th.Start();
@@ -64,6 +67,13 @@ namespace Clipboard_Watcher
 
         // ---------------------------------------------------------------------------------------------------------------
 
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            isEnabled = checkBox1.Checked;
+        }
+
+        // ---------------------------------------------------------------------------------------------------------------
+
         // Main thread func
         private void threadFunc()
         {
@@ -75,7 +85,7 @@ namespace Clipboard_Watcher
 
             while (isRunning)
             {
-                if (System.Windows.Forms.Clipboard.ContainsText())
+                if (isEnabled && System.Windows.Forms.Clipboard.ContainsText())
                 {
                     newText = Clipboard.GetText();
 
