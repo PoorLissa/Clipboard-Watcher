@@ -20,6 +20,8 @@ namespace Clipboard_Watcher
         private static bool isRunning = false;
         private static bool isEnabled = true;
 
+        private static int backCounter = 0;
+
         // ---------------------------------------------------------------------------------------------------------------
 
         public Form1()
@@ -52,7 +54,6 @@ namespace Clipboard_Watcher
             if (richTextBox1.Text.Length > 0)
             {
                 oldText = richTextBox1.Text;
-
                 Clipboard.SetText(oldText);
             }
         }
@@ -69,6 +70,7 @@ namespace Clipboard_Watcher
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
+            oldText = Clipboard.GetText();
             isEnabled = checkBox1.Checked;
         }
 
@@ -106,7 +108,36 @@ namespace Clipboard_Watcher
                     }
                 }
 
+                // backCounter was set to non-zero
+                // This means, the app is disabled temporarily;
+                // Count it back to zero and enable the app
+                if (backCounter > 0)
+                {
+                    backCounter--;
+
+                    if (backCounter == 0)
+                    {
+                        isEnabled = true;
+                        oldText = Clipboard.GetText();
+                    }
+                }
+
                 System.Threading.Thread.Sleep(100);
+            }
+        }
+
+        // ---------------------------------------------------------------------------------------------------------------
+
+        // Prevent self-duplicating while copying directly from the App's RichEdit
+        private void richTextBox1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.Control && (e.KeyCode == Keys.C || e.KeyCode == Keys.Insert))
+            {
+                if (isEnabled)
+                {
+                    isEnabled = false;
+                    backCounter = 3;
+                }
             }
         }
 

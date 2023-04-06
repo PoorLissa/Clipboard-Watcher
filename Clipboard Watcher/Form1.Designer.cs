@@ -52,6 +52,7 @@ namespace Clipboard_Watcher
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             this.richTextBox1.WordWrap = false;
+            this.richTextBox1.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.richTextBox1_PreviewKeyDown);
             // 
             // splitter1
             // 
@@ -130,8 +131,10 @@ namespace Clipboard_Watcher
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.richTextBox1);
+            this.DoubleBuffered = true;
             this.MinimumSize = new System.Drawing.Size(1200, 700);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "-= Clipboard Watcher =-";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
